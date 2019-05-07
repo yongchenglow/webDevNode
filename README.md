@@ -19,7 +19,9 @@ In Terminal type:
 ifconfig
 ```
 
-Look for either `en0` or `en1` and look for `inet`
+Look for either `en0` or `en1` and look for `inet` for the IP address
+
+![image of ifconfig](https://github.com/yongchenglow/webDevNode/blob/master/ifconfig.png "ifconfig")
 
 Documents dropped in this path will be previewed on your device if it is connected to the same network:
 > Mac/Library/WebServer/Documents
