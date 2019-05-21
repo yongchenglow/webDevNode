@@ -18,7 +18,7 @@ if (screen["mozOrientation"] !== undefined) {
   orientKey = 'msOrientation';
 }
 
-var target = $('orientationLock');
+var orientationLog = $('orientationLock');
 var device = $('device');
 var orientationTypeLabel = $('orientationType');
 
@@ -26,12 +26,12 @@ function logChange (event) {
   var timeBadge = new Date().toTimeString().split(' ')[0];
   var newState = document.createElement('p');
   newState.innerHTML = '<span class="badge">' + timeBadge + '</span> ' + event + '.';
-  target.appendChild(newState);
+  orientationLog.appendChild(newState);
 }
 
 if (screen[orientKey]) {
   function update() {
-    var type = screen[orientKey].type || screen[orientKey];
+    var type = screen[orientKey] || screen[orientKey].type ;
     orientationTypeLabel.innerHTML = type;
 
     var landscape = type.indexOf('landscape') !== -1;
@@ -56,13 +56,14 @@ if (screen[orientKey]) {
 
   var onOrientationChange = null;
 
-  if (screen["onmozorientationchange"] !== undefined) { // older API
+  if (screen["mozOrientation"] !== undefined) { // older API
     onOrientationChange = function () {
       logChange('Orientation changed to <b>' + screen[orientKey] + '</b>');
       update();
+      console.log("code goes here");
     };
 
-    screen.addEventListener('onmozorientationchange', onOrientationChange);
+    screen["orientation"].addEventListener('change', onOrientationChange);
   } else if (screen["orientation"]["onchange"] !== undefined) { // newer API
     onOrientationChange = function () {
       logChange('Orientation changed to <b>' + screen[orientKey].type + '</b>');
