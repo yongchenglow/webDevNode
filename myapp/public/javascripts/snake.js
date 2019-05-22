@@ -3,6 +3,11 @@ window.onload = function(){
   contex = canvas.getContext("2d");
   canvas.addEventListener("touchstart",touchStart);
   setInterval(game, 1000/15);
+  navigator.vibrate(200);
+  Notification.requestPermission().then(function(result) {
+    console.log(result);
+    new Notification("Touch the snake game to begin");
+  });
 }
 
 xPlayerPosition = yPlayerPosition = 10;
@@ -11,6 +16,21 @@ xApple = yApple = 15;
 xVelocity = yVelocity = 0;
 trail = [];
 tail = 5;
+start = 0;
+
+function fullScreenCheck() {
+  if (document.fullscreenElement) return;
+  return document.documentElement.requestFullscreen();
+}
+
+document.getElementById("lockScreenOrientation").addEventListener('click', function () {
+  fullScreenCheck();
+  screen.mozLockOrientation("portrait-primary");
+});
+
+document.getElementById("unlockScreenOrientation").addEventListener('click', function () {
+  screen.mozUnlockOrientation();
+});
 
 function game(){
   xPlayerPosition += xVelocity;
@@ -34,8 +54,9 @@ function game(){
   contex.fillStyle = "lime";
   for(var i=0; i < trail.length; i++ ){
     contex.fillRect(trail[i].x * gridSize,trail[i].y * gridSize, gridSize - 2, gridSize - 2);
-    if(trail[i].x == xPlayerPosition && trail[i].y == yPlayerPosition){
+    if(trail[i].x == xPlayerPosition && trail[i].y == yPlayerPosition && start == 1){
       tail = 5;
+      navigator.vibrate(500);
     }
   }
 
@@ -59,37 +80,46 @@ function touchStart(){
 }
 
 var prevMove = "";
-function handleOrientation(event) {
 
+function checkStart(){
+  if (start == 0)
+    start = 1;
+}
+
+function handleOrientation(event) {
   var beta = event.beta;
   var gamma = event.gamma;
 
   // left
-  if(gamma < -15 && beta > -10 && beta < 10 && prevMove != "right"){
+  if(gamma < -15 && Math.abs(gamma) > Math.abs(beta + 5) && prevMove != "right"){
     xVelocity = -1;
     yVelocity = 0;
     prevMove = "left";
+    checkStart();
   }
 
   // up
-  if(beta < -10 && gamma > -15 && gamma < 15 && prevMove != "down"){
+  if(beta < -10 && Math.abs(beta) > Math.abs(gamma - 5) && prevMove != "down"){
     xVelocity = 0;
     yVelocity = -1;
     prevMove = "up";
+    checkStart();
   }
 
   // right
-  if(gamma > 15 && beta > -10 && beta < 10 && prevMove != "left"){
+  if(gamma > 15 && Math.abs(gamma) > Math.abs(beta + 5) && prevMove != "left"){
     xVelocity = 1;
     yVelocity = 0;
     prevMove = "right";
+    checkStart();
   }
 
   // down
-  if(beta > 10 && gamma > -15 && gamma < 15 && prevMove != "up"){
+  if(beta > 10 && Math.abs(beta) > Math.abs(gamma - 5) && prevMove != "up"){
     xVelocity = 0;
     yVelocity = 1;
     prevMove = "down";
+    checkStart();
   }
 
   document.getElementById("betaGamma").innerHTML = "[ "+beta+" , "+gamma+" ]";
