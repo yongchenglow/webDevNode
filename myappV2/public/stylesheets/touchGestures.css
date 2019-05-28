@@ -1,0 +1,30 @@
+.test-element {
+  height: 100px;
+  background-color: black;
+  width: 100px;
+  z-index: 5;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: white;
+  text-align: center;
+  -ms-touch-action: none;
+}
+
+.test-element:nth-child(2) {
+  top: 150px;
+  left: 150px;
+}
+
+.test-element:nth-child(3) {
+  top: 50px;
+  left: 100px;
+}
+
+#demo-placeholder {
+  min-height: 300px;
+  position:relative;
+  background: repeating-linear-gradient(45deg,#f5f2f0,#f5f2f0 20px,#eee 20px,#eee 40px);
+  padding: 10px;
+  border: 1px solid #ccc;
+}
