@@ -8,40 +8,57 @@
     <link rel='stylesheet' href='/stylesheets/fullscreen.css' />
     <link rel='stylesheet' href='/stylesheets/screen.css' />
     <link rel='stylesheet' href='/stylesheets/touchGestures.css' />
+    <link rel='stylesheet' href='/stylesheets/survey.css' />
   </head>
   <body>
     <h1>Survey</h1>
     <div class="container">
-      <div id="survey" style="border:5px solid black;width:500px;height:350px;position:relative">
-        <div style="text-align: center;margin-top:5px;">A</div>
-        <h2 id="question" style="margin-top:40px; margin-bottom: 30px; text-align:center;">Question</h2>
-        <h3 id="answer1" style="margin-left:80px;margin-right:80px;">A: Answer 1</h3>
-        <h3 id="answer2" style="margin-left:80px;margin-right:80px;">B: Answer 2</h3>
-        <div style="margin-left:5px;margin-right:5px;">
-          <span style="display:block;float:left;">D</span>
-          <span style="display:block;float:right;">B</span>
+      <div id="survey" class="survey-container">
+        <div class="top-answer">A</div>
+        <h2 id="question" class="question">Question</h2>
+        <h3 id="answerA" class="answers">A: Answer 1</h3>
+        <h3 id="answerB" class="answers">B: Answer 2</h3>
+        <div class="middle-answer-block">
+          <span class="left-answer">D</span>
+          <span class="right-answer">B</span>
         </div>
-        <h3 id="answer3" style="margin-left:80px;margin-right:80px;">C: Answer 3</h3>
-        <h3 id="answer4" style="margin-left:80px;margin-right:80px;">D: Answer 4</h3>
-        <div style="margin-top:80px;text-align:center;">C</div>
+        <div id="selector" class="dot"></div>
+        <h3 id="answerC" class="answers">C: Answer 3</h3>
+        <h3 id="answerD" class="answers">D: Answer 4</h3>
+        <div class="bottom-answer">C</div>
       </div>
+      <table class="table table-striped table-bordered" style="margin-top:30px;">
+        <tr>
+          <td>Tilt Left/Right [gamma]</td>
+          <td id="doTiltLR"></td>
+        </tr>
+        <tr>
+          <td>Tilt Front/Back [beta]</td>
+          <td id="doTiltFB"></td>
+        </tr>
+        <tr>
+          <td>Direction [alpha]</td>
+          <td id="doDirection"></td>
+        </tr>
+      </table>
     </div>
     <!-- Firefox removed support -->
     <!--<script src="javascripts/battery.js"></script>-->
-    <script src="javascripts/camera.js"></script>
-    <script src="javascripts/clipboard.js"></script>
-    <script src="javascripts/deviceMotion.js"></script>
+
+    <!-- <script src="javascripts/camera.js"></script> -->
+    <!-- <script src="javascripts/clipboard.js"></script> -->
+    <!-- <script src="javascripts/deviceMotion.js"></script> -->
     <script src="javascripts/devicePosition.js"></script>
-    <script src="javascripts/fileAccess.js"></script>
-    <script src="javascripts/foregroundDetection.js"></script>
-    <script src="javascripts/fullscreen.js"></script>
-    <script src="javascripts/geolocation.js"></script>
-    <script src="javascripts/networkType.js"></script>
-    <script src="javascripts/notifications.js"></script>
-    <script src="javascripts/onlineState.js"></script>
-    <script src="javascripts/screen.js"></script>
-    <script src="javascripts/touchGestures.js"></script>
+    <!-- <script src="javascripts/fileAccess.js"></script> -->
+    <!-- <script src="javascripts/foregroundDetection.js"></script> -->
+    <!-- <script src="javascripts/fullscreen.js"></script> -->
+    <!-- <script src="javascripts/geolocation.js"></script> -->
+    <!-- <script src="javascripts/networkType.js"></script> -->
+    <!-- <script src="javascripts/notifications.js"></script> -->
+    <!-- <script src="javascripts/onlineState.js"></script> -->
+    <!-- <script src="javascripts/screen.js"></script> -->
+    <!-- <script src="javascripts/touchGestures.js"></script> -->
     <script src="javascripts/vibration.js"></script>
-    <script src="javascripts/snake.js"></script>
+    <script src="javascripts/survey.js"></script>
   </body>
 </html>
