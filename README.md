@@ -14,7 +14,7 @@ https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5
 ### El Capitan
 https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-os-x-10-11-el-capitan-637b30fe67b1
 
-## 2. Accessing your Local Web Server with different through Firefox
+## 2. Accessing your Local Web Server through Firefox
 ### 2.1 Pre-requisites
 1. Steps above have already been executed
 2. FireFox has been downloaded and installed on your [computer](https://www.mozilla.org/en-US/firefox/new/ "FireFox Laptop") and your [phone](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en "FireFox Phone")
@@ -45,17 +45,21 @@ If you see it return a node number you are good to go.
 
 ## 4. Creating your first Web Application
 In your terminal, navigate to your project folder and type in the following commands:
-> npm install express-generator -g
+> sudo<space>npm<space>install<space>express-generator<space>-g
 
-> express -v ejs -c sass myappname
+> sudo<space>express<space>-v<space>ejs<space>-c<space>ass<space>myappname
 
 Note:
 1. In order to navigate your project folder, you can use the unix commands
 2. Else type `cd` and then drag your project folder into your terminal and press enter
 
+cd myappname
+cd npm install
+cd npm start
+
 ## 5. Understanding your first Web Application
 ### Prerequisite
-1. Download and Installed Atom or any other editor
+1. Download and Install [Atom](https://atom.io "Atom") or any other editor
 
 ### Understanding
 1. Open your editor
@@ -69,7 +73,7 @@ By looking at the folder, you can see that all the files that were automatically
 ## 6. Running your first Web Application
 In the terminal app, navigate to the `myappname` folder and then type the following command:
 
-$ npm start
+> npm start
 
 > This will start a virtual server
 
@@ -82,7 +86,7 @@ You should see the following window:
 If you run into any issues, you can find Yong Cheng or read this article on [Hackernoon](https://hackernoon.com/build-your-first-local-server-and-web-app-with-node-js-5a5d9e00aff0 "Creating your first website") for more information.
 
 Use steps 2.2 to find the ip address. In order to access the page on your phone, ensure that it is connected to the same network and then type `ip:3000` in FireFox. An example is:
-> 172.78.38.98:3000
+> 172.17.85.56:3000
 
 ## Setting Up of MySQL (Optional)
 https://discussions.apple.com/docs/DOC-3082
@@ -98,9 +102,10 @@ Download the source code and Unzip the file.
 
 ![image of Download Zip Button](https://github.com/yongchenglow/webDevNode/blob/master/DownloadZipButton.png "DownloadZipButton")
 
-In order to run the different applications. Navigate into the 4 different project folder and then type:
+In order to run the different applications, navigate into the application taht you want to run and then type:
 
->npm start
+> npm start
+
 
 ### Testing the different Sensors (myappV1)
 myappV1 is a page test the different sensors. Try out each of the different sensor available.
